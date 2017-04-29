@@ -8,6 +8,11 @@ var board = new five.Board({
 
 board.on("ready", function() {
 	var lcd = new five.LCD({controller: "JHD1313M1" });
+	
+	// Inital Message
+	lcd.clear().bgColor(50,120,120)
+	  .cursor(0,0).print("JDub MQTT-LCD-GW")
+	  .cursor(1,0).print("Upcycle It");
 
 	client.on('connect', function() {
 	  client.subscribe('eddy2/lcd');
